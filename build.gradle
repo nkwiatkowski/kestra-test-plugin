@@ -25,7 +25,7 @@ repositories {
 sourceCompatibility = 21
 targetCompatibility = 21
 
-group "io.kestra.plugin"
+group "io.kestra.plugin.typesense"
 description 'Plugin template for Kestra'
 
 tasks.withType(JavaCompile) {
@@ -47,6 +47,9 @@ dependencies {
     annotationProcessor group: "io.kestra", name: "processor", version: kestraVersion
     compileOnly group: "io.kestra", name: "core", version: kestraVersion
     compileOnly group: "io.kestra", name: "script", version: kestraVersion
+
+    // Typesense
+    implementation 'org.typesense:typesense-java:0.9.0'
 }
 
 
@@ -94,6 +97,9 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-engine"
     testImplementation "org.hamcrest:hamcrest"
     testImplementation "org.hamcrest:hamcrest-library"
+
+    //test container
+    testImplementation 'org.testcontainers:testcontainers:1.20.+'
 }
 
 /**********************************************************************************************************************\
