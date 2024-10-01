@@ -25,12 +25,12 @@ import java.util.Map;
 @Getter
 @NoArgsConstructor
 @Schema(
-    title = "Index a document to a Typesens base"
+    title = "Index a document to a Typesense base"
 )
 @Plugin(
     examples = {
         @io.kestra.core.models.annotations.Example(
-            title = "Index a document to a Typesens base",
+            title = "Index a document to a Typesense base",
             code = { "document: \"Document to index\", " +
                 "host: \"Host of the typesense DB\", " +
                 "port: \"Port of the typesense DB\", " +
@@ -92,10 +92,10 @@ public class DocumentIndex extends Task implements RunnableTask<DocumentIndex.Ou
             Duration.ofSeconds(2),typesenseApiKey);
 
         Client client = new Client(configuration);
-        client.collections(typesenseCollection).documents().upsert(typesenseDocument);
+        Map<String, Object> upsert = client.collections(typesenseCollection).documents().upsert(typesenseDocument);
 
         return Output.builder()
-            .child(new OutputChild(typesenseDocument))
+            .child(new OutputChild(upsert))
             .build();
     }
 

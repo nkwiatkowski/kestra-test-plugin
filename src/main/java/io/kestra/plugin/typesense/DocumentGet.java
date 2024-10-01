@@ -27,12 +27,12 @@ import java.util.Map;
 @Getter
 @NoArgsConstructor
 @Schema(
-    title = "Get a document from a Typesens base"
+    title = "Get a document from a Typesense base"
 )
 @Plugin(
     examples = {
         @io.kestra.core.models.annotations.Example(
-            title = "Index a document to a Typesens base",
+            title = "Index a document to a Typesense base",
             code = { "documentId: \"id of the document to get\", " +
                 "host: \"Host of the typesense DB\", " +
                 "port: \"Port of the typesense DB\", " +

@@ -37,7 +37,7 @@ class DocumentIndexTest extends TypesenseContainer {
 
         DocumentIndex.Output runOutput = task.run(runContext);
 
-        assertThat(runOutput.getChild().getDocument(), is(Map.of("countryName", "France", "capital", "Paris", "gdp", 123456)));
+        assertThat(runOutput.getChild().getDocument(), is(Map.of("countryName", "France", "capital", "Paris", "gdp", 123456, "id", "0")));
 
         Map<String, Object> country = client.collections("Countries").documents("0").retrieve();
         assertThat(country.get("countryName"), is("France"));

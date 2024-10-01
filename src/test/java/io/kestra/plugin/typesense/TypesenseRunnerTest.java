@@ -52,7 +52,7 @@ class TypesenseRunnerTest extends TypesenseContainer {
 
         assertThat(execution.getTaskRunList(), hasSize(2));
         assertThat(((Map<String, Object>) execution.getTaskRunList().get(0).getOutputs().get("child")).get("document"),
-            is(Map.of("countryName", "France", "capital", "Paris", "gdp", 123456)));
+            is(Map.of("countryName", "France", "capital", "Paris", "gdp", 123456, "id", "0")));
         assertThat(((Map<String, Object>) execution.getTaskRunList().get(1).getOutputs().get("child")).get("document"),
             is(Map.of("countryName", "France", "capital", "Paris", "gdp", 123456, "id", "0")));
     }
